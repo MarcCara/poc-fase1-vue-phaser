@@ -10,6 +10,7 @@ const estadoAvatar = ref('Disponible');
 
 const nom = ref('MarcCara');
 const mostrarJoc = ref(true);
+const juegoEnPausa = ref(false);
 </script>
 
 <template>
@@ -23,6 +24,9 @@ const mostrarJoc = ref(true);
       <button @click="mostrarJoc = !mostrarJoc">
         {{ mostrarJoc ? 'Amaga el llenç' : 'Mostra el llenç' }}
       </button>
+      <button @click="juegoEnPausa = !juegoEnPausa">
+        {{ juegoEnPausa ? 'Reprèn' : 'Pausa' }}
+      </button>
       <select v-model="estadoAvatar">
         <option>Disponible</option>
         <option>Ocupado</option>
@@ -30,6 +34,6 @@ const mostrarJoc = ref(true);
       </select>
     </div>
 
-    <PhaserCanvas v-if="mostrarJoc" :nomUsuari="nom" :colorAvatar="colorAvatar" :estadoAvatar="estadoAvatar"/>
+    <PhaserCanvas v-if="mostrarJoc" :nomUsuari="nom" :colorAvatar="colorAvatar" :estadoAvatar="estadoAvatar" :juegoEnPausa="juegoEnPausa"/>
   </main>
 </template>
