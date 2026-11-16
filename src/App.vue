@@ -6,9 +6,7 @@ import PhaserCanvas from './components/PhaserCanvas.vue';
 const colorAvatar = ref('#10b981');
 
 
-//Estado del Avatar
 const estadoAvatar = ref('Disponible');
-//
 
 const nom = ref('MarcCara');
 const mostrarJoc = ref(true);
@@ -25,13 +23,11 @@ const mostrarJoc = ref(true);
       <button @click="mostrarJoc = !mostrarJoc">
         {{ mostrarJoc ? 'Amaga el llenç' : 'Mostra el llenç' }}
       </button>
-    //Estado Avatar
       <select v-model="estadoAvatar">
         <option>Disponible</option>
         <option>Ocupado</option>
         <option>Absent</option>
       </select>
-    //
     </div>
 
     <PhaserCanvas v-if="mostrarJoc" :nomUsuari="nom" :colorAvatar="colorAvatar" :estadoAvatar="estadoAvatar"/>

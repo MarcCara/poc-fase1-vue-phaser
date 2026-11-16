@@ -10,9 +10,6 @@
 
     create() { 
       this.avatar = this.add.circle(320, 200, 24, 0x10b981);
-      this.etiqueta = this.add.text(320, 160, 'MarcCara', {
-        fontSize: '18px', fontFamily: 'sans-serif', color: '#ffffff'
-      }).setOrigin(0.5);
       this.etiqueta = this.add.text(320, 148, 'MarcCara', {
         fontSize: '18px', fontFamily: 'sans-serif', color: '#ffffff'
       }).setOrigin(0.5);
