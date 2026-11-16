@@ -3,6 +3,11 @@
   export class MainScene extends Phaser.Scene {
     constructor() { super('MainScene'); }
 
+    canviarColor(hexColor) {
+      const color = parseInt(hexColor.replace('#', ''), 16);
+      this.avatar?.setFillStyle(color);
+    }
+
     create() { // ... codi existent de l'avatar i l'etiqueta ...
       this.avatar = this.add.circle(320, 200, 24, 0x10b981);
       this.etiqueta = this.add.text(320, 160, 'MarcCara', {
