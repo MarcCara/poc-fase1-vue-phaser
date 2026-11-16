@@ -8,21 +8,31 @@
       this.avatar?.setFillStyle(color);
     }
 
-    create() { // ... codi existent de l'avatar i l'etiqueta ...
+    create() { 
       this.avatar = this.add.circle(320, 200, 24, 0x10b981);
       this.etiqueta = this.add.text(320, 160, 'MarcCara', {
         fontSize: '18px', fontFamily: 'sans-serif', color: '#ffffff'
       }).setOrigin(0.5);
+      this.etiqueta = this.add.text(320, 148, 'MarcCara', {
+        fontSize: '18px', fontFamily: 'sans-serif', color: '#ffffff'
+      }).setOrigin(0.5);
+
+      this.textEstat = this.add.text(320, 168, 'Disponible', {
+        fontSize: '14px', fontFamily: 'sans-serif', color: '#ffffff'
+      }).setOrigin(0.5);
     }
 
-    update(time) { // ... codi existent del moviment a 60 FPS ...
+    update(time) {
       this.avatar.y = 200 + Math.sin(time * 0.004) * 8;
-      this.etiqueta.setPosition(this.avatar.x, this.avatar.y - 38);
+      this.etiqueta.setPosition(this.avatar.x, this.avatar.y - 52);
+      this.textEstat.setPosition(this.avatar.x, this.avatar.y - 32);
     }
 
-   // [NOU] Afegeix aquest mètode DINS de class MainScene (abans de tancar })▌
-   actualitzarNom(nouNom) {
-     // ?. evita errors si l'escena encara carrega; || 'Anònim' evita text buit
-     this.etiqueta?.setText(nouNom || 'Anònim');
-   }
-  } // <-- Clau de tancament de class MainScene
+    actualitzarNom(nouNom) {
+      this.etiqueta?.setText(nouNom || 'Anònim');
+    }
+
+    actualitzarEstat(nouEstat) {
+      this.textEstat?.setText(nouEstat);
+    }
+  }
